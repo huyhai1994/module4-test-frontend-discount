@@ -41,9 +41,7 @@ displayList();
 function deleteById(id) {
     if (confirm("Bạn có thực sự muốn xóa ? Hãy Xác nhận lại!")) {
         $.ajax({
-            type: 'DELETE',
-            url: `http://localhost:8080/api/discounts/${id}`,
-            success: () => {
+            type: 'DELETE', url: `http://localhost:8080/api/discounts/${id}`, success: () => {
                 alert("Đã xóa thành công!");
                 displayList();
             },
@@ -54,14 +52,12 @@ function deleteById(id) {
 /*TODO: lay du lieu muon chinh sua theo id*/
 function getTheOldDataOfdiscountFromServer(id) {
     $.ajax({
-        type: 'GET',
-        url: `http://localhost:8080/api/discounts/${id}`,
-        success: function (data) {
-            document.getElementById('price-edit').value = data.price;
-            document.getElementById('startDate-edit').value = data.startDate;
-            document.getElementById('description-edit').value = data.description;
-            document.getElementById('endDate-edit').value = data.endDate;
-            document.getElementById('category-edit').value = data.category.name;
+        type: 'GET', url: `http://localhost:8080/api/discounts/${id}`, success: function (data) {
+            document.getElementById('title').value = data.title;
+            document.getElementById('startDate').value = data.startDate;
+            document.getElementById('endDate').value = data.endDate;
+            document.getElementById('discountMoney').value = data.discountMoney;
+            document.getElementById('detail').value = data.detail;
         },
     })
     temporaryNumber = id;
@@ -73,13 +69,11 @@ function getTheOldDataOfdiscountFromServer(id) {
 *       truyen len*/
 function updatediscount() {
     let newdiscount = {
-        price: document.getElementById('price-edit').value,
-        startDate: document.getElementById('startDate-edit').value,
-        description: document.getElementById('description-edit').value,
-        endDate: document.getElementById('endDate-edit').value,
-        discountMoney: {
-            name: document.getElementById('category-edit').value
-        }
+        title: document.getElementById('title').value,
+        startDate: document.getElementById('startDate').value,
+        endDate: document.getElementById('endDate').value,
+        detail: document.getElementById('detail').value,
+        discountMoney: document.getElementById('discountMoney').value
     };
     $.ajax({
         headers: {
