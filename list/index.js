@@ -39,12 +39,16 @@ displayList();
 
 /*TODO: xoa theo id*/
 function deleteById(id) {
-    $.ajax({
-        type: 'DELETE', url: `http://localhost:8080/api/discounts/${id}`, success: () => {
-            alert("Successfully deleted")
-            displayList();
-        },
-    });
+    if (confirm("Are you sure you want to delete this discount?")) {
+        $.ajax({
+            type: 'DELETE',
+            url: `http://localhost:8080/api/discounts/${id}`,
+            success: () => {
+                alert("Successfully deleted");
+                displayList();
+            },
+        });
+    }
 }
 
 /*TODO: lay du lieu muon chinh sua theo id*/
