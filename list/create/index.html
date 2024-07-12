@@ -8,37 +8,56 @@
     <script type="text/javascript" src="index.js"></script>
     <title></title>
 </head>
-<body onload="displayCategory('category')">
-
+<body>
 <p class="h1 text-white text-center my-5 shadow">Tạo mới</p>
 <div class="container text-end text-capitalize">
     <form class="bg-light border my-5 px-5 py-5 rounded-3 border-5 shadow shadow-lg">
+        <!--TODO: tieu de-->
         <div class="row my-3">
             <div class="col col-md-4 col-sm-12">
-                <label for="price" class="form-label h3">Gia: </label>
+                <label for="title" class="form-label h3">Tiêu đề </label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <input type="text" class="form-control" id="price">
+                <input type="text" class="form-control" id="title">
             </div>
         </div>
-        <!--TODO: Thanh mo ta-->
+        <!--TODO: start date-->
+        <div class="row my-3">
+            <div class="col col-md-4 col-sm-12">
+                <label for="startDate" class="form-label h3">Thời gian bắt đầu</label>
+            </div>
+            <div class="col col-md-8 col-sm-12">
+                <input type="datetime-local" class="form-control" id="startDate">
+            </div>
+        </div>
+        <!--TODO: end date-->
+        <div class="row my-3">
+            <div class="col col-md-4 col-sm-12">
+                <label for="endDate" class="form-label h3">Thời gian kết thúc</label>
+            </div>
+            <div class="col col-md-8 col-sm-12">
+                <input type="datetime-local" class="form-control" id="endDate">
+            </div>
+        </div>
+
+        <!--TODO: Muc giam gia -->
         <div class="row my-3 form-outline">
             <div class="col col-md-4 col-sm-12">
-                <label for="description" class="form-label form-control-outline h3">Mô tả </label>
+                <label for="discountMoney" class="form-label form-control-outline h3">Mức giảm giá</label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <textarea class="form-control" id="description">
-                </textarea>
+                <input type="number" class="form-control" id="discountMoney">
+                </input>
             </div>
         </div>
-        <!--TODO: Thanh lua chon the loai-->
-        <div class="row my-3">
+        <!--TODO: Thanh chi tiết -->
+        <div class="row my-3 form-outline">
             <div class="col col-md-4 col-sm-12">
-                <label for="color" class="form-label h3">Thể loại</label>
+                <label for="detail" class="form-label form-control-outline h3">Chi tiết</label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <select class="form-select" id="category" aria-label="Default select example">
-                </select>
+                <textarea class="form-control" id="detail">
+                </textarea>
             </div>
         </div>
         <!--TODO: Nut submit-->

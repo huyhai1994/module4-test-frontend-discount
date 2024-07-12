@@ -54,9 +54,9 @@ function getTheOldDataOfdiscountFromServer(id) {
         url: `http://localhost:8080/api/discounts/${id}`,
         success: function (data) {
             document.getElementById('price-edit').value = data.price;
-            document.getElementById('color-edit').value = data.color;
+            document.getElementById('startDate-edit').value = data.startDate;
             document.getElementById('description-edit').value = data.description;
-            document.getElementById('quantity-edit').value = data.quantity;
+            document.getElementById('endDate-edit').value = data.endDate;
             document.getElementById('category-edit').value = data.category.name;
         },
     })
@@ -70,10 +70,10 @@ function getTheOldDataOfdiscountFromServer(id) {
 function updatediscount() {
     let newdiscount = {
         price: document.getElementById('price-edit').value,
-        color: document.getElementById('color-edit').value,
+        startDate: document.getElementById('startDate-edit').value,
         description: document.getElementById('description-edit').value,
-        quantity: document.getElementById('quantity-edit').value,
-        category: {
+        endDate: document.getElementById('endDate-edit').value,
+        discountMoney: {
             name: document.getElementById('category-edit').value
         }
     };
