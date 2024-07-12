@@ -39,12 +39,12 @@ displayList();
 
 /*TODO: xoa theo id*/
 function deleteById(id) {
-    if (confirm("Are you sure you want to delete this discount?")) {
+    if (confirm("Bạn có thực sự muốn xóa ? Hãy Xác nhận lại!")) {
         $.ajax({
             type: 'DELETE',
             url: `http://localhost:8080/api/discounts/${id}`,
             success: () => {
-                alert("Successfully deleted");
+                alert("Đã xóa thành công!");
                 displayList();
             },
         });

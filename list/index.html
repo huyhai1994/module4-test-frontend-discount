@@ -15,35 +15,12 @@
 </head>
 <body onload="displayList()">
 
-<!--TODO: navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" type="button" onclick="">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <!--TODO: Content Title-->
 <p class="h1 text-center text-dark" style="margin-top: 150px;">Danh sách khuyến mãi</p>
 <div class="container py-4">
     <!--TODO: add new-->
     <div class="row d-flex">
-    <div class="col">
+        <div class="col">
             <button type="button" class="btn btn-primary"
                     onclick="window.location.href=`./create/index.html`"><i
                     class="fa-solid fa-plus"></i>
@@ -90,45 +67,57 @@
             </div>
             <div class="modal-body">
                 <!--TODO: Form sua-->
-                <form class=" px-5 py-5">
+                <form class="my-5 px-5 py-5">
+                    <!--TODO: tieu de-->
                     <div class="row my-3">
                         <div class="col col-md-4 col-sm-12">
-                            <label for="price-edit" class="form-label h3">Gia: </label>
+                            <label for="title" class="form-label h3">Tiêu đề </label>
                         </div>
                         <div class="col col-md-8 col-sm-12">
-                            <input type="text" class="form-control" id="price-edit">
+                            <input type="text" class="form-control" id="title">
                         </div>
                     </div>
-                    <!--TODO: So luong-->
+                    <!--TODO: start date-->
                     <div class="row my-3">
                         <div class="col col-md-4 col-sm-12">
-                            <label for="endDate-edit" class="form-label h3">So Luong: </label>
+                            <label for="startDate" class="form-label h3">Thời gian bắt đầu</label>
+                        </div>
+                        <div class="col col-md-8 col-sm-12">
+                            <input type="text" class="form-control" id="startDate">
                         </div>
                     </div>
-                    <!--TODO: Thanh mo ta-->
+                    <!--TODO: end date-->
+                    <div class="row my-3">
+                        <div class="col col-md-4 col-sm-12">
+                            <label for="endDate" class="form-label h3">Thời gian kết thúc</label>
+                        </div>
+                        <div class="col col-md-8 col-sm-12">
+                            <input type="text" class="form-control" id="endDate">
+                        </div>
+                    </div>
+
+                    <!--TODO: Muc giam gia -->
                     <div class="row my-3 form-outline">
                         <div class="col col-md-4 col-sm-12">
-                            <label for="description-edit" class="form-label form-control-outline h3">Mo ta san
-                                pham</label>
+                            <label for="discountMoney" class="form-label form-control-outline h3">Mức giảm giá</label>
                         </div>
                         <div class="col col-md-8 col-sm-12">
-                <textarea class="form-control" id="description-edit">
+                            <input type="number" class="form-control" id="discountMoney">
+                            </input>
+                        </div>
+                    </div>
+                    <!--TODO: Thanh chi tiết -->
+                    <div class="row my-3 form-outline">
+                        <div class="col col-md-4 col-sm-12">
+                            <label for="detail" class="form-label form-control-outline h3">Chi tiết</label>
+                        </div>
+                        <div class="col col-md-8 col-sm-12">
+                <textarea class="form-control" id="detail">
                 </textarea>
                         </div>
                     </div>
-                    <!--TODO: Thanh lua chon the loai-->
-                    <div class="row my-3">
-                        <div class="col col-md-4 col-sm-12">
-                            <label for="category-edit" class="form-label h3">The Loai</label>
-                        </div>
-                        <div class="col col-md-8 col-sm-12">
-                            <select class="form-select" id="category-edit" aria-label="Default select example">
-                            </select>
-                        </div>
-                    </div>
                     <!--TODO: Nut submit-->
-                    <button type="submit" value="Add" onclick="#" class="btn btn-primary w-100">Gửi
-                    </button>
+                    <button type="submit" value="Add" onclick="create()" class="btn btn-primary w-100">Submit</button>
                 </form>
             </div>
         </div>
