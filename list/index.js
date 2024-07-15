@@ -88,7 +88,7 @@ function updatediscount() {
         url: `http://localhost:8080/api/discounts/${temporaryNumber}`,
         data: JSON.stringify(newdiscount),
         success: function () {
-            alert('discount updated successfully');
+            alert('Du lieu duoc cap nhat thanh cong');
             displayList();
         }
     });
