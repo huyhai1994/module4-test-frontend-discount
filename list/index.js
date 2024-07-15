@@ -3,8 +3,14 @@ let temporaryNumber = 0;
 
 function displayList() {
     $.ajax({
-        method: 'GET', url: 'http://localhost:8080/api/discounts', success: function (data) {
-            let content = `  <tr>
+        method: 'GET', url: 'http://localhost:8080/api/discounts', success: getDiscountList()
+    })
+}
+
+/*TODO: get discounts list*/
+function getDiscountList() {
+    return function (data) {
+        let content = `  <tr>
                  <th>Số thứ tự</th>
                 <th>Thời gian bắt đầu</th>
                 <th>Thời gian kết thúc</th>
@@ -15,8 +21,8 @@ function displayList() {
                 </th>
                 
         </tr>`
-            for (let i = 0; i < data.length; i++) {
-                content += ` <tr>
+        for (let i = data.length - 1; i >= 0; i--) {
+            content += ` <tr>
             <td>${i + 1}</td>
             <td class="">${data[i].title}</td>
             <td class="">${data[i].startDate}</td>
@@ -28,11 +34,10 @@ function displayList() {
                 <span><button type="button" class="btn btn-danger" onclick="deleteById(${data[i].id})"><i class="fa-solid fa-trash"></i></button></span>
             </td>
         </tr>`;
-            }
-            content += `</table>`;
-            document.getElementById('discounts').innerHTML = content;
         }
-    })
+        content += `</table>`;
+        document.getElementById('discounts').innerHTML = content;
+    }
 }
 
 displayList();
@@ -91,42 +96,13 @@ function updatediscount() {
 
 }
 
+/*TODO: tim kiem danh sach giam gia theo so tien*/
 function searchByDiscountMoney() {
     let searchDiscountMoney = $('#search-discount-money').val();
-    console.log(searchDiscountMoney);
-    console.log("http://localhost:8080/api/discounts/find/" + searchDiscountMoney)
     $.ajax({
         method: 'GET',
         url: "http://localhost:8080/api/discounts/find/" + searchDiscountMoney,
-        success: function (data) {
-            let content = `  <tr>
-                 <th>Số thứ tự</th>
-                <th>Thời gian bắt đầu</th>
-                <th>Thời gian kết thúc</th>
-                <th>Mức giảm giá</th>
-                <th>Chi tiết</th>
-                <th> Mức giảm giá</th>
-                <th>Hành động
-                </th>
-            </tr>`;
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                content += ` <tr>
-            <td>${i + 1}</td>
-            <td class="">${data[i].title}</td>
-            <td class="">${data[i].startDate}</td>
-            <td class="">${data[i].endDate}</td>
-            <td class = "">${data[i].detail}</td>
-            <td class="">${data[i].discountMoney}</td>
-            <td>
-                <Button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="getTheOldDataOfdiscountFromServer(${data[i].id})"><i class="fa-solid fa-pen-to-square"></i></Button>
-                <span><button type="button" class="btn btn-danger" onclick="deleteById(${data[i].id})"><i class="fa-solid fa-trash"></i></button></span>
-            </td>
-        </tr>`;
-            }
-            content += `</table>`;
-            document.getElementById('discounts').innerHTML = content;
-        }
+        success: getDiscountList()
     });
     event.preventDefault();
 }
