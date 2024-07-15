@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    <link href=" https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css " rel="stylesheet">
     <title></title>
 </head>
-<body>
+<body style="background: ivory;">
 <p class="h1 text-white text-center my-5 shadow">Tạo mới</p>
 <div class="container text-end text-capitalize">
     <form class="bg-light border my-5 px-5 py-5 rounded-3 border-5 shadow shadow-lg">
@@ -17,7 +17,7 @@
                 <label for="title" class="form-label h3">Tiêu đề </label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <input type="text" class="form-control" id="title">
+                <input type="text" class="form-control" id="title" required>
             </div>
         </div>
         <!--TODO: start date-->
@@ -26,16 +26,19 @@
                 <label for="startDate" class="form-label h3">Thời gian bắt đầu</label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <input type="text" class="form-control" id="startDate">
+                <input type="text" class="datepicker-input-start form-control input-group date" id="startDate"
+                       placeholder="chon mot ngay" required>
             </div>
         </div>
         <!--TODO: end date-->
         <div class="row my-3">
             <div class="col col-md-4 col-sm-12">
-                <label for="endDate" class="form-label h3">Thời gian kết thúc</label>
+                <label for="endDate" class=" form-label h3">Thời gian kết
+                    thúc</label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <input type="text" class="form-control" id="endDate">
+                <input type="text" class="datepicker-input-end input-group form-control" id="endDate" required
+                       placeholder="chon mot ngay">
             </div>
         </div>
 
@@ -45,8 +48,7 @@
                 <label for="discountMoney" class="form-label form-control-outline h3">Mức giảm giá</label>
             </div>
             <div class="col col-md-8 col-sm-12">
-                <input type="number" class="form-control" id="discountMoney">
-                </input>
+                <input type="number" class="form-control" id="discountMoney" required>
             </div>
         </div>
         <!--TODO: Thanh chi tiết -->
@@ -64,6 +66,22 @@
     </form>
 </div>
 
+<!--TODO: bootstrap 5.0.2 js cdn-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!--TODO: vanilla js datepicker cdn-->
+<script src=" https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js "></script>
 <script type="text/javascript" src="index.js"></script>
+<script>
+    const inputE1 = document.querySelector('.datepicker-input-start');
+    const inputE2 = document.querySelector('.datepicker-input-end');
+    const datepicker1 = new Datepicker(inputE1, {
+        format: 'yyyy-mm-dd',
+        title: 'pick a date'
+    });
+    const datepicker2 = new Datepicker(inputE2, {
+        format: 'yyyy-mm-dd',
+        title: 'pick a date'
+    });
+</script>
 </body>
 </html>

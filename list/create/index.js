@@ -1,4 +1,5 @@
 function create() {
+    /*TODO: form to create new discounts*/
     let title = $('#title').val();
     let startDate = $('#startDate').val();
     let endDate = $('#endDate').val();
