@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body style="background: ivory;">
-<p class="h1 text-white text-center my-5 shadow">Tạo mới</p>
+<p class="h1 text-dark text-center my-5">Tạo mới</p>
 <div class="container text-end text-capitalize">
     <form class="bg-light border my-5 px-5 py-5 rounded-3 border-5 shadow shadow-lg">
         <!--TODO: tieu de-->
@@ -73,7 +73,12 @@
 <script type="text/javascript" src="index.js"></script>
 <script>
     const inputE1 = document.querySelector('.datepicker-input-start');
-    const inputE2 = document.querySelector('.datepicker-input-end');
+    const inputE2 = document.querySele
+    const datepicker1 = new Datepicker(inputE1, {
+        format: 'yyyy-mm-dd',
+        title: 'pick a date'
+    });
+    ctor('.datepicker-input-end');
     const datepicker1 = new Datepicker(inputE1, {
         format: 'yyyy-mm-dd',
         title: 'pick a date'
