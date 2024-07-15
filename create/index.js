@@ -15,6 +15,7 @@ function create() {
             'Accept': 'application/json', 'Content-Type': 'application/json'
         }, url: 'http://localhost:8080/api/discounts', type: 'POST', data: JSON.stringify(newDiscount), success: () => {
             alert('Discount created successfully');
+            window.location.href = '../list/index.html';
         }
     });
     event.preventDefault();
